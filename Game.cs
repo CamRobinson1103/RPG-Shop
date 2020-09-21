@@ -33,6 +33,8 @@ namespace HelloWorld
             _gem.cost = 20;
         }
 
+
+
         public void GetInput(out char input, string option1, string option2, string option3, string query)
         {
             Console.WriteLine(query);
@@ -53,7 +55,7 @@ namespace HelloWorld
                 }
             }
         }
-
+        
         public void OpenShopMenu(Player player)
         {
             Console.WriteLine(_arrow.name);
@@ -61,22 +63,43 @@ namespace HelloWorld
             Console.WriteLine(_gem.name);
 
             char input;
-            GetInput(out input, "Loadout 1", "Loadout 2", "Bananarang", "OI! Hurry an item already!!");
+            GetInput(out input, "Arrow", "Shield", "Health Gem", "OI! Pick whacta want, ehh!!");
             if (input == '1')
             {
                 player.Buy(_arrow,0);
+                Console.WriteLine("Now Select where to put the Item");
+                Console.WriteLine("[1] ");
+                Console.WriteLine("[2] ");
+                Console.WriteLine("[3] ");
             }
             if (input == '2')
             {
                 player.Buy(_shield, 0);
+                Console.WriteLine("Now Select where to put the Item");
+                Console.WriteLine("[1] ");
+                Console.WriteLine("[2] ");
+                Console.WriteLine("[3] ");
             }
                 
             if (input == '3')
             {
                 player.Buy(_gem,0);
+                Console.WriteLine("Now Select where to put the Item");
+                Console.WriteLine("[1] ");
+                Console.WriteLine("[2] ");
+                Console.WriteLine("[3] ");
             }
 
+            _gameOver = true;
+        }
 
+        public Player CreateCharacter()
+        {
+            Console.WriteLine("What is your name?");
+            string name = Console.ReadLine();
+            Player player = new Player();
+            OpenShopMenu(player);
+            return player;
         }
 
         //Run the game
@@ -95,13 +118,14 @@ namespace HelloWorld
         //Performed once when the game begins
         public void Start()
         {
+            
             InitializeItems();
         }
 
         //Repeated until the game ends
         public void Update()
         {
-            
+            CreateCharacter();
         }
 
         //Performed once when the game ends

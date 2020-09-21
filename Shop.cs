@@ -16,8 +16,15 @@ namespace HelloWorld
             Console.WriteLine("[2] Shield");
             Console.WriteLine("[3] Healing Gem");
 
-
-
         }
+
+        public bool Sell(Player player, int shopIndex, int playerIndex)
+        {
+           player.Buy(_inventory[shopIndex], playerIndex);
+           return true;
+        }
+        
+        
     }
+
 }
