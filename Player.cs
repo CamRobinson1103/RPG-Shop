@@ -8,6 +8,7 @@ namespace HelloWorld
     {
         private int _gold;
         private Item[] _inventory;
+        
 
         public Player()
         {
@@ -31,6 +32,11 @@ namespace HelloWorld
         public Item[] GetInventory()
         {
             return _inventory;
+        }
+
+        public int getGold()
+        {
+            return _gold;
         }
     }
 }
